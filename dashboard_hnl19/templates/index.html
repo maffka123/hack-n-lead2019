@@ -1,59 +1,17 @@
-{% from "macros" import embed %}
-
-{% block preamble %}
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-{% endblock %}
-
-
-{% block head %}
-<head>
-    <!-- Required meta tags -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {{ bokeh_css }}
+    {{ bokeh_js }}
+    <style type="text/css">{% include 'styles.css' %}</style>
+  </head>
+  <body>
+    {{ text_div|indent(8) }}
+    {{ text_script|indent(8) }}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000000;">
-        <img src="dashboard_hnl19/static/images/BoundHands.jpg" height="50" width="70">
-        <a class="navbar-brand" ></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link disabled" href="home">Complain here about your job<span class="sr-only">(current)</span></a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</head>
-{% endblock %}
-
-<p style="margin-bottom:0.5cm;"> </p>
-
-{% block body %}
-<body>
-    {% block contents %}
-        {% for doc in docs %}
-            { embed(doc) if doc.elementid }}
-        {% for root in doc.roots %}
-            {% block root scoped %}
-              {{ embed(root) | indent(10) }}
-            {% endblock %}
-        {% endfor %}
-        {% endfor %}
-    {% endblock %}
-
-</body>
-{% endblock %}
 <footer>
     <hr>
     <center>© Hack'n'Lead: Thompson Reuters (Kate, Ashley, Albin, Masha) - 2019</center>
