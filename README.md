@@ -6,9 +6,9 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Data Reference](#data reference)
+- [Data Reference]
 - [Modelling](#modelling)
-- [App and Visual](#app and visual)
+- [App and Visual]
 - [Summary](#summary)
 
 
